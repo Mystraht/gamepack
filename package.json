@@ -1,0 +1,27 @@
+{
+  "name": "game-package",
+  "version": "0.0.1",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Malharhak/ntype"
+  },
+  "author": "anthony-pigeot",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Malharhak/ntype/issues"
+  },
+  "homepage": "https://github.com/Malharhak/ntype",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-requirejs": "~0.4.3",
+    "grunt-contrib-watch": "latest",
+    "bower": "~1.3.2",
+    "grunt-bower-requirejs": "~0.10.0"
+  }
+}
