@@ -1,10 +1,15 @@
 requirejs.config ({
 	baseUrl: "js/",
 	paths: {
+
+		/* Gamepack */
+		gameloop : "../gamepack/gameloop",
+		GameStates : "../gamepack/GameStates"
+		rAnimFrame: "../gamepack/requestAnimFrame",
+		/* External libs */
 		jquery: "../libs/jquery/jquery",
 		"requirejs-domready": "../libs/requirejs-domready/domReady",
 		underscore: "../libs/underscore/underscore",
-		rAnimFrame: "../libs/requestAnimFrame",
 		requirejs: "../libs/requirejs/require",
 		modernizr: "../libs/modernizr/modernizr"
 	},
@@ -17,8 +22,4 @@ requirejs.config ({
 		}
 	},
 	urlArgs: "d=1396975360228"
-});
-
-define(["game"], function (game) {
-	console.log("coucou");
 });
