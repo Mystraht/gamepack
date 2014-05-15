@@ -4,6 +4,7 @@ define (["jquery"], function ($) {
 	};
 
 	Canvas.prototype.init = function (config) {
+		console.log(config);
 		this.container = $(config.gameContainer);
 		this.canvas = $("<canvas />").appendTo (this.container).attr({
 			width : config.width,
@@ -17,12 +18,12 @@ define (["jquery"], function ($) {
 		if (this.renderMode == "RATIO_CSS") {
 			this.aspectRatio = config.width / config.height;
 		}
-
 		this.ctx = this.canvas[0].getContext('2d');
 		var self = this;
 		$(window).resize (function () {
 			self.resize();
 		});
+		this.resize();
 	};
 
 	Canvas.prototype.resize = function () {

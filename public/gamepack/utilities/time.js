@@ -23,7 +23,7 @@ define ([], function () {
 	Time.prototype.resume = function () {
 		this.paused = false;
 		// Adds the duration of the pause to the total paused time
-		this.pausedTime = time.time - this.lastPause; /
+		this.pausedTime = time.time - this.lastPause;
 	};
 
 	Time.prototype.reset = function () {

@@ -1,11 +1,11 @@
 define(["underscore"], function (_) {
   var config = {
     debug : true,
-    gameContainer : "#gameContainer",
     imgFolder : "imgs/",
     logLvl : 3,
     startScene : "main",
     canvas : {
+      gameContainer : "#gameContainer",
       width : 980,
       height : 650,
       renderMode : "RATIO_CSS",

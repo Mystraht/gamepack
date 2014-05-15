@@ -1,5 +1,7 @@
-define (["rAnimFrame", "GameStates", "Stats", "config", "rAnimFrame", "scenesManager"],
-function (rAnimFrame, GameStates, Stats, config, rAnimFrame, scenesManager) {
+define (["rAnimFrame", "GameStates", "Stats", "config", "rAnimFrame", "scenesManager", 
+	"initGame", "time"],
+function (rAnimFrame, GameStates, Stats, config, rAnimFrame, scenesManager, 
+	initGame, time) {
 
 	// Creates a FPS visualizer
 	if (config.debug) {
@@ -21,10 +23,11 @@ function (rAnimFrame, GameStates, Stats, config, rAnimFrame, scenesManager) {
 		}
 		// Main gameloop
 		if (state === GameStates.RUNNING) {
-			inputs();
-			network();
-			update();
-			render();
+			scenesManager.activeScene._inputs();
+			scenesManager.activeScene._update();
+			scenesManager.activeScene._render();
+		} else if (state == GameStates.LOADING) {
+			scenesManager.activeScene._loading();
 		}
 		if (config.debug) {
 			stats.end();
