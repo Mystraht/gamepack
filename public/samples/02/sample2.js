@@ -1,10 +1,11 @@
-define (["GameScene", "canvas", "config", "world", "../02/images", "assetsManager", 
-	"../02/gameObjects", "imageManager"], 
-	function (GameScene, canvas, config, world, images, assetsManager, 
-		gameObjects, imageManager) {
+define (["GameScene", "canvas", "config", "world", "../02/images", "assetsManager",
+	"../02/gameObjects", "imageManager", "Vector2", "time"],
+	function (GameScene, canvas, config, world, images, assetsManager,
+		gameObjects, imageManager, Vector2, time) {
 
 	var sampleScene = new GameScene("sample1");
-	
+
+
 	// This is called first and you should launch assets loading there
 	sampleScene.init = function (callback) {
 		self.startCallback = callback;
@@ -24,10 +25,10 @@ define (["GameScene", "canvas", "config", "world", "../02/images", "assetsManage
 	sampleScene.start = function (callback) {
 		for (var i = 0; i < gameObjects.length; i++) {
 			var gameObject = gameObjects[i];
-			var createdObject = world.createGameObject(gameObject);
+			this.createdObject = world.createGameObject(gameObject);
 			if (gameObject.renderer) {
 				var renderer = world.createRenderer(gameObject.renderer);
-				createdObject.addRenderer(renderer);
+				this.createdObject.addRenderer(renderer);
 			}
 		}
 		console.log ("yo");
@@ -35,7 +36,9 @@ define (["GameScene", "canvas", "config", "world", "../02/images", "assetsManage
 		callback();
 	};
 	sampleScene.update = function () {
-
+		this.createdObject.rotate(0.1);
+		this.createdObject.translate (new Vector2(0.5, 0.5));
+		this.createdObject.setScale(Math.sin(time.time));
 	};
 	sampleScene.render = function () {
 		canvas.ctx.fillStyle = "white";

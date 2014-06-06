@@ -1,4 +1,4 @@
-define (["GameObject", "Renderer", "Collider", "utils", "graphics"], 
+define (["GameObject", "Renderer", "Collider", "utils", "graphics"],
 	function (GameObject, Renderer, Collider, utils, graphics) {
 	var World = function () {
 		this.gameObjects = {};

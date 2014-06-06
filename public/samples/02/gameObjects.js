@@ -2,14 +2,14 @@ define ([], function () {
 	var gameObjects = [
 		{
 			position : {
-				x : 5,
-				y : 5
+				x : 40,
+				y : 40
 			},
 			rotation : 2,
 			renderer : {
 				pivot : {
-					x : 2,
-					y : 2
+					x : 25,
+					y : 25
 				},
 				image : "sample2",
 				width : 50,

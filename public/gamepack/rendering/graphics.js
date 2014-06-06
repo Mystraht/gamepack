@@ -1,4 +1,4 @@
-define (["canvas", "Vector2", "imageManager"], 
+define (["canvas", "Vector2", "imageManager"],
 	function (canvas, Vector2, imageManager) {
 	var Graphics = function () {
 
@@ -16,11 +16,10 @@ define (["canvas", "Vector2", "imageManager"],
 		var scaledPivot = Vector2.scl(renderer.pivot, renderer.scale);
 		// Gets the drawing center
 		var drawPos = renderer.position - scaledPivot;
-		canvas.ctx.translate(renderer.position.x, renderer.position.y);
+		canvas.ctx.translate(renderer.position.x + scaledPivot.x, renderer.position.y + scaledPivot.y);
 		canvas.ctx.rotate(renderer.rotation);
 
 		canvas.ctx.drawImage(image, 0, 0, renderer.width, renderer.height, -scaledPivot.x, -scaledPivot.y, renderer.width * renderer.scale, renderer.height * renderer.scale);
-
 		canvas.ctx.restore();
 	};
 
