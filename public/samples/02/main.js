@@ -1,5 +1,5 @@
 requirejs.config ({
-	baseUrl: "../../../js/",
+	baseUrl: "../../js/",
 	paths: {
 
 		// Classes
@@ -58,9 +58,9 @@ requirejs.config ({
 	urlArgs: "d=1396975360228"
 });
 
-require (["gameloop", "../gamepack/sample/01/sample1", "scenesManager", "../gamepack/sample/01/config"], 
+require (["gameloop", "../samples/02/sample2", "scenesManager", "../samples/02/config"], 
 function (gameloop, sampleScene, scenesManager, config) {
-	scenesManager.addScene("sample1", sampleScene);
+	scenesManager.addScene("sample2", sampleScene);
 	gameloop.init(config);
 	return true;
 });

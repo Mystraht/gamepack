@@ -2,11 +2,20 @@ requirejs.config ({
 	baseUrl: "js/",
 	paths: {
 
+		// Classes
+		Collider 		: "../gamepack/classes/Collider",
+		GameObject 		: "../gamepack/classes/GameObject",
+		Renderer 		: "../gamepack/classes/Renderer",
+
+		// entities
+		world 			: "../gamepack/entities/world",
+
 		// Enums
 		GameStates 		: "../gamepack/enum/GameStates",
 
 		// Rendering
 		canvas 			: "../gamepack/rendering/canvas",
+		graphics 		: "../gamepack/rendering/graphics",
 		// Resources
 		assetsManager 	: "../gamepack/resources/assetsManager",
 		imageManager 	: "../gamepack/resources/imageManager",
@@ -15,7 +24,9 @@ requirejs.config ({
 		rAnimFrame 		: "../gamepack/utilities/requestAnimFrame",
 		Stats 			: "../gamepack/utilities/Stats",
 		time 			: "../gamepack/utilities/time",
-
+		utils 			: "../gamepack/utilities/utils",
+		Vector2 		: "../gamepack/utilities/Vector2",
+		
 		// Scene
 		scenesManager	: "../gamepack/scene/scenesManager",
 		GameScene 		: "../gamepack/scene/GameScene",
@@ -30,7 +41,8 @@ requirejs.config ({
 		"requirejs-domready": "../libs/requirejs-domready/domReady",
 		underscore 		: "../libs/underscore/underscore",
 		requirejs 		: "../libs/requirejs/require",
-		modernizr 		: "../libs/modernizr/modernizr"
+		modernizr 		: "../libs/modernizr/modernizr",
+		howler 			: "../libs/howler/howler.min"
 	},
 	shim: {
 		jquery: {

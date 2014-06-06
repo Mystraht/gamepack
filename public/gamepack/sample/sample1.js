@@ -1,5 +1,4 @@
-define (["GameScene", "canvas", "config", "world"], 
-	function (GameScene, canvas, config, world) {
+define (["GameScene", "canvas", "config"], function (GameScene, canvas, config) {
 
 	var sampleScene = new GameScene("sample1");
 	
@@ -20,7 +19,6 @@ define (["GameScene", "canvas", "config", "world"],
 
 	};
 	sampleScene.render = function () {
-		world.render();
 		// Just some test code
 		canvas.ctx.fillStyle = "white";
 		canvas.ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);

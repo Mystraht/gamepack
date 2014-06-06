@@ -1,15 +1,13 @@
-define (["imageManager", "soundManager"], 
-function (imageManager, soundManager) {
+define (["imageManager"], 
+function (imageManager) {
 	// Assets manager, manages the list of assets and their loading, delegating to other classes
 	var assetManagers = {
-		"image" 	: imageManager,
-		"sound" 	: soundManager
+		"image" 	: imageManager
 	};
 
 	var AssetsManager = function () {
 		this.assets = {
-			"image" : {},
-			"sound" : {}
+			"image" : {}
 		};
 	};
 

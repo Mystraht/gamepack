@@ -1,5 +1,5 @@
-define (["time", "config", "canvas"], 
-function (time, config, canvas) {
+define (["time", "config", "canvas", "imageManager"], 
+function (time, config, canvas, imageManager) {
 
 	// This functions initializes every part of the gamepack before running any user code
 	var initGame = function (callback) {
@@ -7,6 +7,7 @@ function (time, config, canvas) {
 			console.log ("Initializing game...");
 		}
 		canvas.init (config.canvas);
+		imageManager.init(config.imgFolder);
 		initResources (function () {
 			callback();
 		});

@@ -34,12 +34,15 @@ define([], function() {
     };
 
     // If you want to manually add an already existing image to the manager
-    ImageManager.prototype.add = function(name, img) {
+    ImageManager.prototype.add = function(name, url) {
+        var img = new Image();
     	this.images[name] = {
     		img : img,
-    		url : null,
-    		loaded : 1
+    		url : url,
+    		loaded : 0
     	};
+        this.imagesToLoad++;
+        this.loadImage(name);
     };
 
     /* Fills the manager. Takes as parameter an object of this form : {
