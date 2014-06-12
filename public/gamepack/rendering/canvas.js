@@ -9,7 +9,8 @@ define (["jquery"], function ($) {
 		this.canvas = $("<canvas />").appendTo (this.container).attr({
 			width : config.width,
 			height : config.height,
-			id : config.canvasId
+			id : config.canvasId,
+			tabIndex : 1
 		}).css ({
 			position : "absolute"
 		});
