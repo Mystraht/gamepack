@@ -7,6 +7,7 @@ define (["GameScene", "config"], function (GameScene, config) {
 
 	ScenesManager.prototype.addScene = function (name, scene) {
 		this.scenes[name] = scene;
+		var self = this;
 	};
 
 	ScenesManager.prototype.changeScene = function (name, initCallback, loadCallback) {
@@ -19,6 +20,10 @@ define (["GameScene", "config"], function (GameScene, config) {
 			console.log("Changing Scene : " + name);
 		}
 		var self = this;
+		this.scenes[name]._changeScene = function (name) {
+			self.changeScene (name, initCallback, loadCallback);
+		};
+
 		this.scenes[name].init(function () {
 			self.onInit();
 		});

@@ -5,6 +5,11 @@ define (["jquery"], function ($) {
 
 	Canvas.prototype.init = function (config) {
 		console.log(config);
+		this.width = config.width;
+		this.height = config.height;
+		this.cssWidth = this.width;
+		this.cssHeight = this.height;
+		
 		this.container = $(config.gameContainer);
 		this.canvas = $("<canvas />").appendTo (this.container).attr({
 			width : config.width,
@@ -54,6 +59,8 @@ define (["jquery"], function ($) {
 			left 	: left + 'px',
 			top 	: top + 'px'
 		});
+		this.cssWidth = newWidth;
+		this.cssHeight = newHeight;
 	};
 
 	return new Canvas();

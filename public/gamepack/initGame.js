@@ -1,5 +1,5 @@
-define (["time", "config", "canvas", "imageManager", "inputs"], 
-function (time, config, canvas, imageManager, inputs) {
+define (["time", "config", "canvas", "imageManager", "inputs", "nuggetaInt"], 
+function (time, config, canvas, imageManager, inputs, nuggetaInt) {
 
 	// This functions initializes every part of the gamepack before running any user code
 	var initGame = function (callback) {
@@ -10,7 +10,17 @@ function (time, config, canvas, imageManager, inputs) {
 		inputs.init (canvas.container);
 		imageManager.init(config.imgFolder);
 		initResources (function () {
-			callback();
+			if (config.nuggeta) {
+				nuggetaInt.init(config.nuggeta, function (response) {
+					if (response.getStartStatus() == StartStatus.READY) {
+						callback();
+					} else {
+						console.error ("Nuggeta couldn't start !" + response.getStartStatus().toString());
+					}
+				});
+			} else {
+				callback();	
+			}
 		});
 	};
 

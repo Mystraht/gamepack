@@ -1,5 +1,6 @@
-define ([], function () {
+define (["Mouse"], function (Mouse) {
 	var Inputs = function () {
+		this.mouse = new Mouse();
 		this.downs = [];
 		this.letters = [];
 		this.ups = [];
@@ -14,6 +15,10 @@ define ([], function () {
 	Inputs.prototype.onKeyUp = function (callback) {
 		this.ups.push(callback);
 	};
+	Inputs.prototype._postInputs = function () {
+		this.mouse.postInputs();
+	};
+
 	Inputs.prototype._inputs = function (callback) {
 
 	};
@@ -36,6 +41,12 @@ define ([], function () {
 				self.letters[i](letter);
 			}
 		});
+		container.on('mousemove', function (event) {
+			self.mouse.move (event);
+		});
+		container.on('mousedown', function (event) {
+			self.mouse.down(event.which);
+		})
 	};
 
 	return new Inputs();

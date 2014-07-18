@@ -1,6 +1,6 @@
 define([], function () {
   var config = {
-    startScene : "learning"
+    startScene : "menu"
   };
   if (config.debug) {
     window.config = config;

@@ -23,9 +23,11 @@ function (rAnimFrame, GameStates, Stats, config, rAnimFrame, scenesManager,
 		}
 		// Main gameloop
 		if (state === GameStates.RUNNING) {
+			scenesManager.activeScene._preInputs();
 			scenesManager.activeScene._inputs();
 			scenesManager.activeScene._update();
 			scenesManager.activeScene._render();
+			scenesManager.activeScene._postInputs();
 		} else if (state == GameStates.LOADING) {
 			scenesManager.activeScene._loading();
 		}

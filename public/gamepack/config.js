@@ -6,10 +6,14 @@ define(["underscore"], function (_) {
     startScene : "main",
     canvas : {
       gameContainer : "#gameContainer",
-      width : 980,
-      height : 650,
+      width : 640,
+      height : 1136,
       renderMode : "RATIO_CSS",
       id : "gameCanvas"
+    },
+    nuggeta : {
+      use : true,
+      url : "nuggeta://sheepkeeper_2fbd4c44-a969-4a1b-88f6-194b662fcd1f"
     }
   };
   if (config.debug) {

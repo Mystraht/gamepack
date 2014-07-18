@@ -1,5 +1,6 @@
-define([], function () {
+define(["inputs"], function (inputs) {
 	var funcs = [
+		"preInputs",
 		"inputs",
 		"preUpdate",
 		"update",
@@ -16,6 +17,9 @@ define([], function () {
 		for (var i = 0; i < funcs.length; i++) {
 			this["_" + funcs[i]] = createGameSceneFunction (funcs[i]);
 		}
+	};
+	GameScene.prototype._postInputs = function () {
+		inputs._postInputs();
 	};
 
 	// Used to generate all functions (_update, _render, etc)
