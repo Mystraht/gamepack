@@ -1,4 +1,4 @@
-define ([], function () {
+define (["Vector2"], function (Vector2) {
 	var utils = {};
 
 	utils.guid = function () {
@@ -23,5 +23,27 @@ define ([], function () {
 	utils.randInt = function (min, max) {
 		return Math.floor(Math.random() * (max-min) + min);
 	};
+	utils.angleFromDir = function (direction) {
+		return Math.atan2(direction.y, direction.x);
+	}
+	utils.aabb = function (x1, x2, y1, y2, w1, w2, h1, h2) {
+		if ( x1 + w1 < x2
+			|| x2 + w2 < x1
+			|| y1 + h1 < y2
+			|| y2 + h2 < y1 ) {
+
+				return false;
+			} else {
+				return true;
+			}
+	};
+	utils.circleIntersect = function (p1, r1, p2, r2) {
+		if (Vector2.distance(p1, p2) <= r1 + r2) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+	
 	return utils;
 });

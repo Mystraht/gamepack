@@ -47,8 +47,7 @@ function (rAnimFrame, GameStates, Stats, config, rAnimFrame, scenesManager,
 		state = GameStates.RUNNING;
 	}
 
-	function init (configParams) {
-		config.init(configParams);
+	function init () {
 		
 		initGame (function () {
 			loop();

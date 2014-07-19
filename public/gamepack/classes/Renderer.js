@@ -1,6 +1,6 @@
 define (["Vector2"], function (Vector2) {
 	var Renderer = function (infos) {
-		this._id = infos._id;
+		this._id = infos._id || 0;
 		this.position = infos.position || new Vector2(0, 0);
 		this.rotation = infos.rotation || 0;
 		this.pivot 	= infos.pivot 	|| new Vector2(0, 0);

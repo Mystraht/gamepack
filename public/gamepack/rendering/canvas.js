@@ -4,7 +4,6 @@ define (["jquery"], function ($) {
 	};
 
 	Canvas.prototype.init = function (config) {
-		console.log(config);
 		this.width = config.width;
 		this.height = config.height;
 		this.cssWidth = this.width;

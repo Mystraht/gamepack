@@ -18,6 +18,13 @@ define(["inputs"], function (inputs) {
 			this["_" + funcs[i]] = createGameSceneFunction (funcs[i]);
 		}
 	};
+	GameScene.prototype._init = function (callback) {
+		inputs.reset();
+		this.init(callback);
+	};
+	GameScene.prototype._start = function (callback) {
+		this.start(callback);
+	}
 	GameScene.prototype._postInputs = function () {
 		inputs._postInputs();
 	};

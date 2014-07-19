@@ -16,7 +16,7 @@ define (["GameScene", "config"], function (GameScene, config) {
 
 		this.nextScene = name;
 
-		if (config.logLvl >= 3) {
+		if (config.debug) {
 			console.log("Changing Scene : " + name);
 		}
 		var self = this;
@@ -24,7 +24,7 @@ define (["GameScene", "config"], function (GameScene, config) {
 			self.changeScene (name, initCallback, loadCallback);
 		};
 
-		this.scenes[name].init(function () {
+		this.scenes[name]._init(function () {
 			self.onInit();
 		});
 		this.scenes[name]._loadCallback = function () {
@@ -33,7 +33,7 @@ define (["GameScene", "config"], function (GameScene, config) {
 	};
 
 	ScenesManager.prototype.onInit = function () {
-		if (config.logLvl >= 3) {
+		if (config.debug) {
 			console.log ("Scene initialized : " + this.nextScene);
 		}
 		this.activeScene = this.scenes[this.nextScene];
@@ -43,8 +43,8 @@ define (["GameScene", "config"], function (GameScene, config) {
 
 	ScenesManager.prototype.onLoad = function () {
 		var self = this;
-		this.activeScene.start ( function () {
-			if (config.logLvl >= 3) {
+		this.activeScene._start ( function () {
+			if (config.debug) {
 				console.log("scene started : " + self.nextScene);
 			}
 			self.loadCallback();

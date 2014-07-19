@@ -14,8 +14,8 @@ define (["canvas", "Vector2", "imageManager"],
 		}
 		// Scales the pivot point with the object scale
 		var scaledPivot = Vector2.scl(renderer.pivot, renderer.scale);
+
 		// Gets the drawing center
-		var drawPos = renderer.position - scaledPivot;
 		canvas.ctx.translate(renderer.position.x + scaledPivot.x, renderer.position.y + scaledPivot.y);
 		canvas.ctx.rotate(renderer.rotation);
 

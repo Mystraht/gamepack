@@ -12,6 +12,8 @@ define ([], function () {
 
 	Time.prototype.pause = function () {
 		this.paused = true;
+		this.deltaTime = 0;
+		this.actualDeltaTime = 0;
 		this.lastPause = Date.now() / 1000;
 	};
 	Time.prototype.resume = function () {
@@ -20,12 +22,14 @@ define ([], function () {
 	}
 
 	Time.prototype.preUpdate = function () {
-		this.lastTime = this.time;
-		this.lastActualTime = this.actualTime;
-		this.time = Date.now() / 1000 - this.pausedTime - this.start;
-		this.actualTime = Date.now() / 1000;
-		this.deltaTime = this.time - this.lastTime;
-		this.actualDeltaTime = this.actualTime - this.lastActualTime;
+		if (!this.paused) {
+			this.lastTime = this.time;
+			this.lastActualTime = this.actualTime;
+			this.time = Date.now() / 1000 - this.pausedTime - this.start;
+			this.actualTime = Date.now() / 1000;
+			this.deltaTime = this.time - this.lastTime;
+			this.actualDeltaTime = this.actualTime - this.lastActualTime;
+		}
 	};
 	Time.prototype.postUpdate = function () {
 		/*this.lastTime = this.time;

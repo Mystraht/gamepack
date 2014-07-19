@@ -6,6 +6,13 @@ define (["Mouse"], function (Mouse) {
 		this.ups = [];
 	};
 
+	Inputs.prototype.reset = function () {
+		this.downs = [];
+		this.letters = [];
+		this.ups = [];
+		this.mouse.reset();
+	};
+
 	Inputs.prototype.onLetter = function (callback) {
 		this.letters.push(callback);
 	};
@@ -23,7 +30,6 @@ define (["Mouse"], function (Mouse) {
 
 	};
 	Inputs.prototype.init = function (container) {
-		console.log(container);
 		var self = this;
 		container.on('keydown', function (event) {
 			for (var i = 0; i < self.downs.length; i++) {
@@ -42,11 +48,21 @@ define (["Mouse"], function (Mouse) {
 			}
 		});
 		container.on('mousemove', function (event) {
-			self.mouse.move (event);
+			self.mouse.moveClassic (event);
 		});
 		container.on('mousedown', function (event) {
-			self.mouse.down(event.which);
+			self.mouse.down(event.which, event);
 		})
+		container.on('mouseup', function (event) {
+			self.mouse.up(event.which, event);
+		});
+		container.on('touchstart', function (event) {
+			self.mouse.touchDown(event);
+		});
+		container.on('touchend', function (event) {
+			self.mouse.touchUp(event);
+		});
+
 	};
 
 	return new Inputs();

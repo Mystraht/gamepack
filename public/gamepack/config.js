@@ -1,13 +1,13 @@
 define(["underscore"], function (_) {
   var config = {
-    debug : true,
+    debug : false,//((location.host.search("localhost") == 0 || location.host.search("developer") != -1) ? true : false),
     imgFolder : "imgs/",
     logLvl : 3,
     startScene : "main",
     canvas : {
       gameContainer : "#gameContainer",
       width : 640,
-      height : 1136,
+      height : 888,
       renderMode : "RATIO_CSS",
       id : "gameCanvas"
     },
