@@ -10,9 +10,10 @@ define (["GameScene", "config"], function (GameScene, config) {
 		var self = this;
 	};
 
-	ScenesManager.prototype.changeScene = function (name, initCallback, loadCallback) {
+	ScenesManager.prototype.changeScene = function (name, initing, initCallback, loadCallback) {
 		this.initCallback = initCallback;
 		this.loadCallback = loadCallback;
+		this.initing = initing;
 
 		this.nextScene = name;
 
@@ -21,9 +22,9 @@ define (["GameScene", "config"], function (GameScene, config) {
 		}
 		var self = this;
 		this.scenes[name]._changeScene = function (name) {
-			self.changeScene (name, initCallback, loadCallback);
+			self.changeScene (name, initing, initCallback, loadCallback);
 		};
-
+		this.initing();
 		this.scenes[name]._init(function () {
 			self.onInit();
 		});
@@ -36,8 +37,8 @@ define (["GameScene", "config"], function (GameScene, config) {
 		if (config.debug) {
 			console.log ("Scene initialized : " + this.nextScene);
 		}
-		this.activeScene = this.scenes[this.nextScene];
 		this.initCallback();
+		this.activeScene = this.scenes[this.nextScene];
 	};
 
 

@@ -19,6 +19,9 @@ define([], function() {
     		return false;
     	}
     };
+    ImageManager.prototype.getPercentage = function () {
+        return this.imagesLoaded / this.imagesToLoad;
+    };
 
     // Handles the loading
     ImageManager.prototype.loadImage = function(i) {

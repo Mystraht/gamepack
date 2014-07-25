@@ -2,9 +2,6 @@ requirejs.config ({
 	baseUrl: "js/",
 	paths: {
 
-		// apis
-		nuggetaInt		: "../gamepack/apis/nuggetaInt",
-
 		// Classes
 		Collider 		: "../gamepack/classes/Collider",
 		GameObject 		: "../gamepack/classes/GameObject",
@@ -15,13 +12,11 @@ requirejs.config ({
 		// entities
 		world 			: "../gamepack/entities/world",
 
-		// Enums
-		GameStates 		: "../gamepack/enums/GameStates",
-
 		// Inputs
 		inputs			: "../gamepack/inputs/inputs",
-		Mouse 			: "../gamepack/inputs/Mouse",
-		MouseButton 	: "../gamepack/inputs/MouseButton",
+		
+		// Enums
+		GameStates 		: "../gamepack/enums/GameStates",
 
 		// Rendering
 		canvas 			: "../gamepack/rendering/canvas",
@@ -53,7 +48,7 @@ requirejs.config ({
 		initGame 		: "../gamepack/initGame",
 
 		/* External libs */
-		jquery 			: "../libs/jquery/jquery.min",
+		jquery 			: "../libs/jquery/jquery",
 		"requirejs-domready": "../libs/requirejs-domready/domReady",
 		underscore 		: "../libs/underscore/underscore",
 		requirejs 		: "../libs/requirejs/require",
@@ -71,5 +66,6 @@ requirejs.config ({
 			exports : "Stats"
 		}
 	},
-	urlArgs: "d=" + Date.now()
+	urlArgs: "d=1396975360228"
 });
+console.log("sup");

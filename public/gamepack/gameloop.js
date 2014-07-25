@@ -38,7 +38,10 @@ function (rAnimFrame, GameStates, Stats, config, rAnimFrame, scenesManager,
 		rAnimFrame(loop);
 	}
 	function changeScene (scene) {
-		scenesManager.changeScene(scene, onInit, onLoad);
+		scenesManager.changeScene(scene, initing, onInit, onLoad);
+	}
+	function initing () {
+		state = GameStates.PAUSED;
 	}
 	function onInit () {
 		state = GameStates.LOADING;

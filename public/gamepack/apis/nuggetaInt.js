@@ -3,8 +3,8 @@ define (["config"], function (config) {
 		this.started = false;
 	};
 
-	NuggetaInt.prototype.init = function (conf, callback) {
-		window.nuggetaPlug = new NuggetaPlug().init(conf.url);
+	NuggetaInt.prototype.init = function (url, callback) {
+		window.nuggetaPlug = new NuggetaPlug().init(url);
 		if (config.debug) {
 			nuggetaPlug.setPlayerDebugId("d-2fbd4c44-a969-4a1b-88f6-194b662fcd1f-1405771683308")
 		}
