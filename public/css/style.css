@@ -1,0 +1,24 @@
+#gameContainer {
+	position: absolute;
+	left :	0;
+	top : 0;
+	margin : 0;
+	padding : 0;
+	width : 100%;
+	height : 100%;
+	background-color : black;
+	z-index: -1;
+}
+body {
+	margin : 0;
+	padding : 0;
+	background-color : gray;
+}
+#ap_iframe {
+	width : 100% !important;
+	height : auto;
+	position: fixed;
+	top: 50%;
+	z-index : 2;
+	visibility: hidden;
+}
