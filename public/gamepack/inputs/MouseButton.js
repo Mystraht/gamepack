@@ -1,8 +1,8 @@
 define ([], function () {
 	var MouseButton = function () {
-		this.down = 0;
-		this.lastDown = 0;
-		this.pressed = 0;
+		this.down = 0; // The button is being held down
+		this.lastDown = 0; 
+		this.pressed = 0; // The button has just been pressed at this frame
 	};
 
 	MouseButton.prototype.press = function () {

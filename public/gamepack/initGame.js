@@ -1,22 +1,23 @@
-define (["time", "config", "canvas", "imageManager", "inputs", "nuggetaInt", 
-	"kongregateInt"], 
+define (["time", "config", "canvas", "imageManager", "inputs", "nuggetaInt",
+	"kongregateInt", "gamepackImages", "assetsManager"],
 function (time, config, canvas, imageManager, inputs, nuggetaInt,
-	kongregateInt) {
+	kongregateInt, gamepackImages, assetsManager) {
 
 	// This functions initializes every part of the gamepack before running any user code
 	var started = false;
 
-	var initGame = function (callback) {
+	var initGame = function (callback1, callback2) {
 		if (config.debug) {
 			console.log ("Initializing game...");
 		}
+		window.scrollTo(0, 1);
 		canvas.init (config.canvas);
-		inputs.init (canvas.container);
-		imageManager.init(config.imgFolder);
+		inputs.init ($(window));
+		callback1();
 		initResources (function () {
 			initNuggeta (function () {
 				initKongregate (function () {
-					callback();
+					callback2();
 				});
 			});
 		});
@@ -35,7 +36,7 @@ function (time, config, canvas, imageManager, inputs, nuggetaInt,
 				}
 			});
 		} else {
-			callback();	
+			callback();
 		}
 	};
 	var initKongregate = function (callback) {
@@ -49,8 +50,14 @@ function (time, config, canvas, imageManager, inputs, nuggetaInt,
 	};
 
 	var initResources = function (callback) {
-		time.reset();
-		callback();
+		assetsManager.push(gamepackImages, "image");
+		var interval = setInterval (function () {
+			if (assetsManager.isLoaded()) {
+				time.reset();
+				callback();
+				clearInterval (interval);
+			}
+		}, 50);
 	};
 
 	return initGame;

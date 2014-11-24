@@ -1,3 +1,6 @@
+/*
+* Particle class - Used with particle emitters
+*/
 define(["Vector2", "time", "lerp", "Color"], 
 	function (Vector2, time, lerp, Color) {
 	var Particle = function (infos) {

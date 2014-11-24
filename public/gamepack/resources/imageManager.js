@@ -71,6 +71,9 @@ define([], function() {
     		this.loadImage(i);
     	}
     };
+    ImageManager.prototype.push = function (images) {
+        this.pushImages (images);
+    };
 
     // returns an image based on its reference
     ImageManager.prototype.get = function (name) {

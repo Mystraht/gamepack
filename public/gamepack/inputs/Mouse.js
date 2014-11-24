@@ -1,10 +1,16 @@
-define (["Vector2", "MouseButton", "canvas"], function (Vector2, MouseButton, canvas) {
+/** Mouse container
+- Contains the mouse ingame position
+- Contains a MouseButton object for each mouse button
+**/
+define (["Vector2", "MouseButton", "canvas", "time"], 
+	function (Vector2, MouseButton, canvas, time) {
 	var assoc = [
 		"",
 		"left",
 		"middle",
 		"right"
 	];
+	// TODO : Change mousebutton to button
 	var Mouse = function () {
 		this.position = new Vector2(0, 0);
 		this.buttons = {
@@ -12,6 +18,7 @@ define (["Vector2", "MouseButton", "canvas"], function (Vector2, MouseButton, ca
 			right : new MouseButton(),
 			middle : new MouseButton()
 		};
+		this.lastPosChange = time.actualTime - 5;
 	};
 	Mouse.prototype.reset = function () {
 		this.buttons = {
@@ -40,8 +47,15 @@ define (["Vector2", "MouseButton", "canvas"], function (Vector2, MouseButton, ca
 
 		x *= canvas.width / canvas.cssWidth;
 		y *= canvas.height / canvas.cssHeight;
-		this.position.x = x;
-		this.position.y = y;
+		var lastPosition = {
+			x : this.position.x,
+			y : this.position.y
+		};
+		this.position.x = Math.floor(x);
+		this.position.y = Math.floor(y);
+		if (this.position.x != lastPosition.x || this.position.y != lastPosition.y) {
+			this.lastPosChange = time.actualTime;
+		}
 	};
 	Mouse.prototype.down = function (button, evt) {
 		var btn = assoc[button];

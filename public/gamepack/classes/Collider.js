@@ -1,3 +1,7 @@
+/**
+	2D collider class
+	WIP
+**/
 define (["Vector2"], function (Vector2) {
 	var Collider = function (infos) {
 		this._id = infos._id;

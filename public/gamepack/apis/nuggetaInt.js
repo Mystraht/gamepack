@@ -1,3 +1,6 @@
+/** Nuggeta API integration
+- Loads the nuggeta API and creates the global nuggetaPlug object
+- Listens to nuggeta events with the pump function **/
 define (["config"], function (config) {
 	var NuggetaInt = function () {
 		this.started = false;

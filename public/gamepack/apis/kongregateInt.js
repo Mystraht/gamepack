@@ -1,3 +1,6 @@
+/**
+	Kongregate API integration 
+- Loads the kongregate api and creates the kongregate global object **/
 define ([], function () {
 	var KongregateInt = function () {
 

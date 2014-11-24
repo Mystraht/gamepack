@@ -1,14 +1,13 @@
-define (["imageManager"], 
-function (imageManager) {
+define (["imageManager",  "soundsManager"], 
+function (imageManager, soundsManager) {
 	// Assets manager, manages the list of assets and their loading, delegating to other classes
 	var assetManagers = {
-		"image" 	: imageManager
+		"image" 	: imageManager,
+		"sound" 	: soundsManager
 	};
 
 	var AssetsManager = function () {
-		this.assets = {
-			"image" : {}
-		};
+
 	};
 
 	// Gets an asset
@@ -24,10 +23,19 @@ function (imageManager) {
 		}
 		return true;
 	};
-
+	AssetsManager.prototype.getPercentage = function () {
+		var p = 0;
+		for (var i in assetManagers) {
+			p += assetManagers[i].getPercentage();
+		}
+		return p / 2;
+	};
 	// Adds a new asset to the list
 	AssetsManager.prototype.add = function (name, file, type) {
 		assetManagers[type].add (name, file);
+	};
+	AssetsManager.prototype.push = function (obj, type) {
+		assetManagers[type].push (obj);
 	};
 	return new AssetsManager();
 });

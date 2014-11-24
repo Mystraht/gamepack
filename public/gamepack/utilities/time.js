@@ -29,6 +29,9 @@ define ([], function () {
 			this.actualTime = Date.now() / 1000;
 			this.deltaTime = this.time - this.lastTime;
 			this.actualDeltaTime = this.actualTime - this.lastActualTime;
+			if (this.deltaTime > 0.2) {
+				this.deltaTime = 0.2;
+			}
 		}
 	};
 	Time.prototype.postUpdate = function () {

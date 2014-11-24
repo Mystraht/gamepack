@@ -1,3 +1,7 @@
+/** Renderer class
+- Used by the graphics function to know how to render an object
+- WIP
+**/
 define (["Vector2"], function (Vector2) {
 	var Renderer = function (infos) {
 		this._id = infos._id || 0;

@@ -1,3 +1,6 @@
+/** Loading bar helper 
+- Draws itself on your screen with some config parameters
+**/
 define (["config"], function (config) {
 	var LoadingBar = function () {
 		this.width = config.loadingBar.width;

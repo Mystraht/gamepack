@@ -1,6 +1,17 @@
 define (["Vector2"], function (Vector2) {
 	var utils = {};
-
+	Math.radians = function (degrees) {
+		return degrees  * Math.PI / 180;
+	};
+	Math.degrees = function (radians) {
+		return radians * 180 / Math.PI;
+	};
+	Math.clamp = function (min, max, val) {
+		if (val < min) val = min;
+		if (val > max) val = max;
+		return val;
+	};
+	
 	utils.guid = function () {
 		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 		    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);

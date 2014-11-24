@@ -1,3 +1,7 @@
+/**
+	Color class to easily manage color effects
+	Takes as parameter an array of rgb (or rgba) colors
+**/
 define (["lerp"], function (lerp) {
 	var Color = function (infos) {
 		this.r = infos[0] | 0;
@@ -9,6 +13,7 @@ define (["lerp"], function (lerp) {
 			this.a = 1;
 		}
 	};
+	// Lerps between two colors for gradients and other stuff
 	Color.interpolate = function (c1, c2, step) {
 		return new Color ([
 			lerp(c1.r, c2.r, step),

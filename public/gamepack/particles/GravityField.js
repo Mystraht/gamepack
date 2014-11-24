@@ -1,3 +1,4 @@
+// WIP - not used yet
 define ([], function () {
 	var GravityField = function (position, mass) {
 		this.position = position;
