@@ -22,7 +22,7 @@ define ([], function () {
 			this.y + v2.y
 		);
 	};
-	
+
 
 	Vector2.prototype.sub = function (v2) {
 		return new Vector2(
@@ -36,6 +36,12 @@ define ([], function () {
 			this.x * scl,
 			this.y * scl
 		);
+	};
+
+
+	Vector2.prototype.distance = function (v2) {
+		var v3 = new Vector2(v2.x - this.x, v2.y - this.y);
+		return v3.length();
 	};
 
 
