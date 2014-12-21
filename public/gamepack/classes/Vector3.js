@@ -1,15 +1,22 @@
 /*
  * Vector3 class with usual functions
  */
-define([], function () {
+define ([], function () {
 	var Vector3 = function (x, y, z) {
-		if (typeof x == "undefined") x = 0;
-		if (typeof y == "undefined") y = 0;
-		if (typeof z == "undefined") z = 0;
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		if (typeof x !== "undefined"  && typeof y == "undefined") {
+			this.x = x.x;
+			this.y = x.y;
+			this.z = x.z;
+		} else {
+			if (typeof x == "undefined") x = 0;
+			if (typeof y == "undefined") y = 0;
+			if (typeof z == "undefined") z = 0;
+			this.x = x;
+			this.y = y;
+			this.z = z;
+		}
 	}
+
 
 	Vector3.prototype.add = function (v2) {
 		return new Vector3(
